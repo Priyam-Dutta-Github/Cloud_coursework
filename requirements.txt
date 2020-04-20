@@ -1,0 +1,7 @@
+pip
+Flask
+flask_table
+requests
+cassandra-driver
+wtforms
+passlib

@@ -1,0 +1,7 @@
+CREATE KEYSPACE userlogin WITH REPLICATION = {'class' : 'SimpleStrategy', 'replication_factor' : 1};
+
+CREATE TABLE userlogin.stats (username varchar PRIMARY KEY, email varchar, password varchar);
+
+CREATE KEYSPACE crimestat WITH REPLICATION = {'class' : 'SimpleStrategy', 'replication_factor' : 1};
+
+CREATE TABLE crimestat.stats (category varchar, id varchar PRIMARY KEY, latitude varchar, longitude varchar, street_id varchar,street_name varchar, location_type varchar, month varchar);
