@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>UK Police data</title>
+  {% with messages = get_flashed_messages() %}
+        {% if messages %}
+       <ul class="flashes">
+       {% for message in messages %}
+         <div class="message_flash">{{ message }}</div>
+       {% endfor %}
+       </ul>
+        {% endif %}
+  {% endwith %}
+  {% block body %}
+  {% endblock %}
+</head>
+
+<body>
+
+<h1>Welcome to UK Police Data!</h1>
+<p>This is the welcome page. Please click any of the following links!</p>
+
+<h2>Links</h2>
+<p>Link to see all available crimes: <a href='/allcrime'>Link</a></p>
+
+<p>Link to enter and see crimes for any month: <a href='/entermonth'>Link</a></p>
+
+
+</body>
+</html>
