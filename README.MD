@@ -8,7 +8,14 @@ All html templates required to run this code are stored under the 'templates' fo
 
 The file "cassandra.txt" stores the commands used to setup the table structures in casssandra.
 
-Functions explained:
+*************************************************
+The code is written as such that the app route is the same as the function name. For example: to access the login page enter "http://ec2-18-204-218-107.compute-1.amazonaws.com/login" where 'http://ec2-18-204-218-107.compute-1.amazonaws.com' is the dns name.
+
+However, to access the other routes of the application, user has to login first and continue to be logged in to the session.
+
+*************************************************
+
+The functions are explained below. 
 
 1. index():
 The page for the user to login or register. "index.html" is used to provide options to the user.
@@ -38,10 +45,9 @@ i) If already present, it redirectes to "allcrime.html" to show the data availab
 ii) If not present, it pulls data from the api for that month and stores in cassandra. Then it redirects to allcrime() function.
 
 7. allcrime():
-The function checks all available data present in cassandra and dispalys them using "allcrime.html"
+The function checks all available data present in cassandra and dispalys them using "allcrime.html".
 "allcrime.html" has options for the user to update or delete a crime record.
-i) if the user selects to delete the record, the fu
-nction deletecrime() is called
+i) if the user selects to delete the record, the function deletecrime() is called
 ii) if the user selects to edit the record, the function editcrime is called
 
 8. editcrime():
@@ -53,10 +59,10 @@ The function takes the crime id as input and updates the crime category in the d
 
 10. deletecrime():
 The function tales the crime id as input and deletes the selected record from the database.
-Upon sucessful deletion, redirects the page to show all available crimes usinf the allcrime() function.
+Upon sucessful deletion, redirects the page to show all available crimes using the allcrime() function.
 
 11. upd():
-This function is created to implement the put function and update the crime category when called externally from Postman.
+This function is created to demonstrate the put function and update the crime category when called externally example from Postman.
 
 12. logout():
 This function helps the user to logout of the session.
@@ -75,7 +81,7 @@ Setup steps:
 >> run a Cassandra instance within docker using: - sudo docker run --name cassandra-test -p 9042:9042 -d cassandra:latest
 >> run cassandra: - docker run -p 127.0.0.1:32779:9042 --name cassandra -d cassandra:latest
 >> to interact with our Cassandra via its native command line shell client
-called ‘cqlsh’ run: - sudo docker exec -it cassandra-test cqlsh
+called â€˜cqlshâ€™ run: - sudo docker exec -it cassandra-test cqlsh
 >> execute the queries as given in "cassandra.txt" and exit cqlsh
 >> to build the image run: - sudo docker build . --tag=cassandrarest:v1
 >> run it as a service, exposing the deploment to get an external IP: - sudo docker run -p 80:80 cassandrarest:v1
